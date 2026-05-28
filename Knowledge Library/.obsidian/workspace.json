@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "x mind/MySQL.md",
+                "file": "blogs/通过到货数量与装箱信息判断是否整箱到货算法.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MySQL"
+              "title": "通过到货数量与装箱信息判断是否整箱到货算法"
             }
           }
         ]
@@ -40,7 +40,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -93,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "x mind/MySQL.md",
+                "file": "blogs/通过到货数量与装箱信息判断是否整箱到货算法.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "MySQL 的反向链接列表"
+              "title": "通过到货数量与装箱信息判断是否整箱到货算法 的反向链接列表"
             }
           },
           {
@@ -149,11 +150,11 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -164,41 +165,42 @@
   },
   "active": "7bc0231a56a7cdbc",
   "lastOpenFiles": [
-    "memo/账号密码.md",
+    "blogs/到货数量与装箱信息判断是否完整到货源码.md",
+    "blogs/通过到货数量与装箱信息判断是否整箱到货算法.md",
+    "blogs/创建个人网站.md",
+    "learning notes/php学习笔记.md",
+    "learning notes/linux学习笔记.md",
+    "learning notes/Linux.md",
+    "learning notes/数据库索引.md",
+    "memo/常见问题处理.md",
+    "memo/开发流程备忘.md",
     "memo/疑难杂症.md",
+    "memo/账号密码.md",
+    "memo/Untitled.md",
+    "x mind/NGINX.md",
+    "x mind/MySQL.md",
+    "blogs/php xdebug.md",
+    "blogs/图片放大封装.md",
+    "blogs/职业规划.md",
+    "blogs/职业生涯规划.md",
+    "blogs/跨境物流备货单整箱到货分析.md",
+    "blogs/php xdebug.pdf",
+    "blogs/qinglong.md",
+    "未命名.canvas",
+    "未命名.md",
+    "欢迎.md",
+    "未命名 2",
+    "未命名 1",
+    "未命名",
+    "learning notes/labuladong的算法小抄官方完整版.pdf",
     "memo/选题报告.pdf",
     "memo/选题报告.md",
     "memo/需求说明书.pdf",
     "memo/需求说明书.md",
-    "memo/开发流程备忘.md",
-    "memo/常见问题处理.md",
-    "memo/Untitled.md",
     "memo/Untitled 1.md",
-    "learning notes/php学习笔记.md",
-    "learning notes/linux学习笔记.md",
-    "learning notes/Linux.md",
     "learning notes/备忘录/需求说明书.pdf",
     "learning notes/备忘录/需求说明书.md",
     "learning notes/备忘录/选题报告.pdf",
-    "learning notes/备忘录/疑难杂症.md",
-    "learning notes/备忘录/账号密码.md",
-    "learning notes/备忘录/选题报告.md",
-    "learning notes/备忘录/开发流程备忘.md",
-    "learning notes/备忘录/常见问题处理.md",
-    "learning notes/备忘录/Untitled.md",
-    "learning notes/备忘录/Untitled 1.md",
-    "learning notes/备忘录",
-    "learning notes/数据库索引.md",
-    "memo",
-    "x mind/NGINX.md",
-    "x mind/MySQL.md",
-    "x mind/MySQL.xmind",
-    "x mind/MySQL索引.xmind",
-    "x mind/NGINX.xmind",
-    "x mind",
-    "learning notes/权限管理理解文档.md",
-    "blogs/创建个人网站.md",
-    "blogs/WordPress+LNMP创建个人博客.md",
-    "欢迎.md"
+    "learning notes/备忘录"
   ]
 }
