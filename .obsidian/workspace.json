@@ -1,20 +1,24 @@
 {
   "main": {
-    "id": "7e4548cf98d3e320",
+    "id": "4f6671df7d6e4781",
     "type": "split",
     "children": [
       {
-        "id": "ef1e2d8e8dc6894b",
+        "id": "e408e963dedd474b",
         "type": "tabs",
         "children": [
           {
-            "id": "63bde48dad06b222",
+            "id": "9eedcb88520f6871",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "blogs/layui+jquery+php文件分片上传.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "layui+jquery+php文件分片上传"
             }
           }
         ]
@@ -23,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "86d22d8d514f199d",
+    "id": "200b26e77dad55ba",
     "type": "split",
     "children": [
       {
-        "id": "6fb76fb6fdf5abf2",
+        "id": "cf3e491add584e75",
         "type": "tabs",
         "children": [
           {
-            "id": "7bc0231a56a7cdbc",
+            "id": "c80bda18f8db0388",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +48,7 @@
             }
           },
           {
-            "id": "b4e7316802002734",
+            "id": "a80cd210581fd6fc",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +65,7 @@
             }
           },
           {
-            "id": "c4decf458221bb1f",
+            "id": "ce3d401dd9400011",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -77,19 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "a76e54a1990e7288",
+    "id": "c3e635d0fe51ef28",
     "type": "split",
     "children": [
       {
-        "id": "53f0fa7cf7006934",
+        "id": "5bced47ce894b45f",
         "type": "tabs",
         "children": [
           {
-            "id": "16692eeee8e5be1f",
+            "id": "f29c0233ccc32599",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "blogs/layui+jquery+php文件分片上传.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,50 +104,69 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "layui+jquery+php文件分片上传 的反向链接列表"
             }
           },
           {
-            "id": "36fb8cdd2be04ce4",
+            "id": "9ffb4e46c3ac6738",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "x mind/MySQL.md",
+                "file": "blogs/layui+jquery+php文件分片上传.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "MySQL 的出链列表"
+              "title": "layui+jquery+php文件分片上传 的出链列表"
             }
           },
           {
-            "id": "1810b2d108801239",
+            "id": "005f9ee53c0b849f",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "标签"
             }
           },
           {
-            "id": "cfd9acccb7b8eb65",
+            "id": "eecf3c49697e9e3d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "23ac32531291d133",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "x mind/MySQL.md"
+                "file": "blogs/layui+jquery+php文件分片上传.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "MySQL 的大纲"
+              "title": "layui+jquery+php文件分片上传 的大纲"
             }
           },
           {
-            "id": "8635e8a0112f2181",
+            "id": "5b5a867a62c1add0",
             "type": "leaf",
             "state": {
               "type": "git-view",
@@ -152,7 +176,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -160,54 +184,53 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false,
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "63bde48dad06b222",
+  "active": "c80bda18f8db0388",
   "lastOpenFiles": [
-    "blogs/通过到货数量与装箱信息判断是否整箱到货算法.md",
-    "blogs/到货数量与装箱信息判断是否完整到货源码.md",
-    "blogs/创建个人网站.md",
+    "interview exp/腾讯微保面试.md",
+    "interview exp/百度外包一面.md",
+    "interview exp/百度外包一面面经.md",
+    "plan/php后端开发基础复习.md",
+    "plan/新建 文本文档.txt",
+    "plan",
+    "新建文件夹",
+    "learning notes/Redis面试题.md",
+    "learning notes/问答记录.md",
+    "learning notes/后端面试题.md",
+    "问答记录.md",
+    "后端面试题.md",
+    "Redis面试题.md",
+    "x mind/学生观.xmind",
+    "x mind/教育观.xmind",
+    "interview exp/面试.md",
+    "面试.md",
+    "interview exp",
+    "x mind/MySQL.md",
+    "x mind/NGINX.xmind",
+    "x mind/NGINX.md",
+    "x mind/MySQL索引.xmind",
+    "x mind/MySQL.xmind",
+    "x mind",
+    "memo/账号密码.md",
+    "memo/疑难杂症.md",
+    "memo/开发流程备忘.md",
+    "memo/Untitled.md",
+    "memo/常见问题处理.md",
+    "memo/eip系统图片预览对话记录.md",
+    "learning notes/数据库索引.md",
+    "learning notes/基于Cursor的软件开发方法论探索.md",
+    "learning notes/Untitled.md",
     "learning notes/php学习笔记.md",
     "learning notes/linux学习笔记.md",
-    "learning notes/Linux.md",
-    "learning notes/数据库索引.md",
-    "memo/常见问题处理.md",
-    "memo/开发流程备忘.md",
-    "memo/疑难杂症.md",
-    "memo/账号密码.md",
-    "memo/Untitled.md",
-    "x mind/NGINX.md",
-    "x mind/MySQL.md",
-    "blogs/php xdebug.md",
-    "blogs/图片放大封装.md",
-    "blogs/职业规划.md",
-    "blogs/职业生涯规划.md",
-    "blogs/跨境物流备货单整箱到货分析.md",
-    "blogs/php xdebug.pdf",
-    "blogs/qinglong.md",
-    "未命名.canvas",
-    "未命名.md",
-    "欢迎.md",
-    "未命名 2",
-    "未命名 1",
-    "未命名",
-    "learning notes/labuladong的算法小抄官方完整版.pdf",
-    "memo/选题报告.pdf",
-    "memo/选题报告.md",
-    "memo/需求说明书.pdf",
-    "memo/需求说明书.md",
-    "memo/Untitled 1.md",
-    "learning notes/备忘录/需求说明书.pdf",
-    "learning notes/备忘录/需求说明书.md",
-    "learning notes/备忘录/选题报告.pdf",
-    "learning notes/备忘录"
+    "learning notes/Linux.md"
   ]
 }
