@@ -1,4 +1,27 @@
-.obsidian/*
-
+# Obsidian-Git官方推荐基础配置
+# 编辑器配置
 .obsidian/workspace.json
-.obsidian/workspace
+.obsidian/appearance.json
+.obsidian/community-plugins.json.bak
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# 构建产物
+node_modules/
+main.js
+*.js.map
+
+# 动态数据
+/data.json
+.obsidian/cache/
+.obsidian/backlink-cache.json
+
+# 忽略插件配置但保留激活状态
+.obsidian/plugins/**/*
+!/.obsidian/plugins/**/manifest.json
+!/.obsidian/plugins/**/data.json
