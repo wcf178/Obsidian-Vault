@@ -11,14 +11,14 @@
             "id": "9eedcb88520f6871",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "learning notes/MySql索引.md",
-                "mode": "source",
-                "source": false
+                "aFile": ".obsidian/workspace.json",
+                "bFile": ".obsidian/workspace.json",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "MySql索引"
+              "icon": "diff",
+              "title": "Diff: workspace.json  (Working Tree)"
             }
           }
         ]
@@ -156,13 +156,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "learning notes/MySql索引.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "MySql索引 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -176,7 +175,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -197,8 +196,8 @@
   },
   "active": "9eedcb88520f6871",
   "lastOpenFiles": [
-    "learning notes/Drawing 2026-06-06 17.05.24.excalidraw.md",
     "learning notes/MySql索引.md",
+    "learning notes/Drawing 2026-06-06 17.05.24.excalidraw.md",
     "learning notes/Linux.md",
     "interview exp/百度外包一面.md",
     "learning notes/问答记录.md",
