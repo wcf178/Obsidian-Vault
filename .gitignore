@@ -1,7 +1,7 @@
 # Obsidian-Git官方推荐基础配置
 # 编辑器配置
 .obsidian/workspace.json
-.obsidian/workspace*.json
+.obsidian/workspace-mobile.json
 .obsidian/appearance.json
 .obsidian/community-plugins.json.bak
 
