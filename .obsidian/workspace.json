@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "10b8336fd23b216d",
+        "id": "ee1015c1b5560059",
         "type": "tabs",
         "children": [
           {
-            "id": "4bd5069aeeb427e6",
+            "id": "ed3c9802ad7b3b7d",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "excalidraw",
               "state": {
-                "aFile": ".gitignore",
-                "bFile": ".gitignore",
-                "aRef": ""
+                "file": "learning notes/Drawing 2026-06-06 17.05.24.excalidraw.md"
               },
-              "icon": "diff",
-              "title": "Diff: .gitignore  (Working Tree)"
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2026-06-06 17.05.24.excalidraw"
             }
           }
         ]
@@ -156,12 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "learning notes/Drawing 2026-06-06 17.05.24.excalidraw.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "Drawing 2026-06-06 17.05.24.excalidraw 的大纲"
             }
           },
           {
@@ -194,7 +193,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "4bd5069aeeb427e6",
+  "active": "ed3c9802ad7b3b7d",
   "lastOpenFiles": [
     "learning notes/Drawing 2026-06-06 17.05.24.excalidraw.md",
     "learning notes/Drawing 2026-06-06 17.05.24.excalidraw.restored.md",
