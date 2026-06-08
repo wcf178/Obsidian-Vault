@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blogs/layui+jquery+php文件分片上传.md",
+                "file": "learning notes/MySql索引.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "layui+jquery+php文件分片上传"
+              "title": "MySql索引"
             }
           }
         ]
@@ -146,8 +146,8 @@
                 "showSearch": false,
                 "searchQuery": ""
               },
-              "icon": "lucide-archive",
-              "title": "添加笔记属性"
+              "icon": "lucide-ghost",
+              "title": "all-properties"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "blogs/layui+jquery+php文件分片上传.md",
+                "file": "learning notes/MySql索引.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "layui+jquery+php文件分片上传 的大纲"
+              "title": "MySql索引 的大纲"
             }
           },
           {
@@ -176,7 +176,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -184,27 +184,35 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:创建新数据库": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "c80bda18f8db0388",
+  "active": "9eedcb88520f6871",
   "lastOpenFiles": [
-    "interview exp/腾讯微保面试.md",
+    "learning notes/Drawing 2026-06-06 17.05.24.excalidraw.md",
+    "learning notes/MySql索引.md",
+    "learning notes/Linux.md",
     "interview exp/百度外包一面.md",
-    "interview exp/百度外包一面面经.md",
+    "learning notes/问答记录.md",
+    "plan/百度薄弱回顾.md",
     "plan/php后端开发基础复习.md",
+    "learning notes/数据库索引.md",
+    "未命名.md",
+    "blogs/layui+jquery+php文件分片上传.md",
+    "interview exp/腾讯微保面试.md",
+    "interview exp/百度外包一面面经.md",
     "plan/新建 文本文档.txt",
     "plan",
     "新建文件夹",
     "learning notes/Redis面试题.md",
-    "learning notes/问答记录.md",
     "learning notes/后端面试题.md",
     "问答记录.md",
     "后端面试题.md",
@@ -224,13 +232,6 @@
     "memo/疑难杂症.md",
     "memo/开发流程备忘.md",
     "memo/Untitled.md",
-    "memo/常见问题处理.md",
-    "memo/eip系统图片预览对话记录.md",
-    "learning notes/数据库索引.md",
-    "learning notes/基于Cursor的软件开发方法论探索.md",
-    "learning notes/Untitled.md",
-    "learning notes/php学习笔记.md",
-    "learning notes/linux学习笔记.md",
-    "learning notes/Linux.md"
+    "memo/常见问题处理.md"
   ]
 }
