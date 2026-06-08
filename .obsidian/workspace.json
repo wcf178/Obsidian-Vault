@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "plan/php后端开发基础复习.md",
+                "file": "plan/百度薄弱回顾.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "php后端开发基础复习"
+              "title": "百度薄弱回顾"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "plan/php后端开发基础复习.md",
+                "file": "plan/百度薄弱回顾.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "php后端开发基础复习 的大纲"
+              "title": "百度薄弱回顾 的大纲"
             }
           },
           {
@@ -197,13 +197,13 @@
   },
   "active": "9eedcb88520f6871",
   "lastOpenFiles": [
+    "plan/php后端开发基础复习.md",
     "learning notes/MySql索引.md",
     "learning notes/Drawing 2026-06-06 17.05.24.excalidraw.md",
     "learning notes/Linux.md",
     "interview exp/百度外包一面.md",
     "learning notes/问答记录.md",
     "plan/百度薄弱回顾.md",
-    "plan/php后端开发基础复习.md",
     "learning notes/数据库索引.md",
     "未命名.md",
     "blogs/layui+jquery+php文件分片上传.md",
