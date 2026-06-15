@@ -11,10 +11,14 @@
             "id": "63bde48dad06b222",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "learning notes/php_backend_dev_notes/总览.md",
+                "bFile": "learning notes/php_backend_dev_notes/总览.md",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: 总览  (Working Tree)"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "blogs/图片放大封装.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "图片放大封装 的反向链接列表"
             }
           },
           {
@@ -172,42 +177,42 @@
   },
   "active": "63bde48dad06b222",
   "lastOpenFiles": [
-    "blogs/通过到货数量与装箱信息判断是否整箱到货算法.md",
-    "blogs/到货数量与装箱信息判断是否完整到货源码.md",
-    "blogs/创建个人网站.md",
-    "learning notes/php学习笔记.md",
-    "learning notes/linux学习笔记.md",
-    "learning notes/Linux.md",
-    "learning notes/数据库索引.md",
-    "memo/常见问题处理.md",
-    "memo/开发流程备忘.md",
-    "memo/疑难杂症.md",
-    "memo/账号密码.md",
-    "memo/Untitled.md",
-    "x mind/NGINX.md",
-    "x mind/MySQL.md",
-    "blogs/php xdebug.md",
     "blogs/图片放大封装.md",
     "blogs/职业规划.md",
     "blogs/职业生涯规划.md",
-    "blogs/跨境物流备货单整箱到货分析.md",
-    "blogs/php xdebug.pdf",
+    "blogs/jQuery事件处理与自动触发问题解决方案.md",
+    "blogs/layui+jquery+php文件分片上传.md",
+    "blogs/php xdebug.md",
     "blogs/qinglong.md",
+    "blogs/创建个人网站.md",
+    "blogs/WordPress+LNMP创建个人博客.md",
+    "blogs/php xdebug.pdf",
+    "learning notes/php_backend_dev_notes/总览.md",
+    "learning notes/php_backend_dev_notes/PHP运行流程.md",
+    "learning notes/php_backend_dev_notes/PHP生命周期.md",
+    "learning notes/php_backend_dev_notes/CGI，fastCGI，PHP-FPM.md",
+    "learning notes/php_backend_dev_notes/1_新建 文本文档.md",
+    "learning notes/php_backend_dev_notes/zval数据结构.md",
+    "learning notes/php_backend_dev_notes/TCP3次握手四次挥手.md",
+    "learning notes/php_backend_dev_notes/repo/zval数据结构.md",
+    "learning notes/php_backend_dev_notes/repo/TCP3次握手四次挥手.md",
+    "learning notes/php_backend_dev_notes/repo/CGI，fastCGI，PHP-FPM.md",
+    "learning notes/php_backend_dev_notes/repo/PHP运行流程.md",
+    "learning notes/php_backend_dev_notes/repo/PHP生命周期.md",
+    "learning notes/php_backend_dev_notes/repo/1_新建 文本文档.md",
+    "learning notes/php_backend_dev_notes/repo",
+    "learning notes/php_backend_dev_notes",
+    "learning notes/repo/repo/PHP生命周期.md",
+    "learning notes/repo/repo/1_新建 文本文档.md",
+    "learning notes/repo/repo/zval数据结构.md",
+    "learning notes/repo/repo/TCP3次握手四次挥手.md",
+    "learning notes/repo/repo",
+    "learning notes/repo",
+    "repo/repo",
+    "repo",
+    "repo.zip",
     "未命名.canvas",
-    "未命名.md",
-    "欢迎.md",
     "未命名 2",
-    "未命名 1",
-    "未命名",
-    "learning notes/labuladong的算法小抄官方完整版.pdf",
-    "memo/选题报告.pdf",
-    "memo/选题报告.md",
-    "memo/需求说明书.pdf",
-    "memo/需求说明书.md",
-    "memo/Untitled 1.md",
-    "learning notes/备忘录/需求说明书.pdf",
-    "learning notes/备忘录/需求说明书.md",
-    "learning notes/备忘录/选题报告.pdf",
-    "learning notes/备忘录"
+    "未命名 1"
   ]
 }
