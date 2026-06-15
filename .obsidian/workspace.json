@@ -13,12 +13,12 @@
             "state": {
               "type": "split-diff-view",
               "state": {
-                "aFile": "learning notes/php_backend_dev_notes/总览.md",
-                "bFile": "learning notes/php_backend_dev_notes/总览.md",
+                "aFile": ".gitignore",
+                "bFile": ".gitignore",
                 "aRef": ""
               },
               "icon": "diff",
-              "title": "Diff: 总览  (Working Tree)"
+              "title": "Diff: .gitignore  (Working Tree)"
             }
           }
         ]
@@ -177,6 +177,12 @@
   },
   "active": "63bde48dad06b222",
   "lastOpenFiles": [
+    "memo/刊登系统clickhouse.md",
+    "memo/eip系统图片预览对话记录.md",
+    "memo/账号密码.md",
+    "memo/疑难杂症.md",
+    "memo/开发流程备忘.md",
+    "memo/常见问题处理.md",
     "conflict-files-obsidian-git.md",
     "x mind/教育观.xmind",
     "x mind/学生观.xmind",
@@ -203,12 +209,6 @@
     "blogs/WordPress+LNMP创建个人博客.md",
     "blogs/php xdebug.pdf",
     "learning notes/php_backend_dev_notes/总览.md",
-    "learning notes/php_backend_dev_notes/PHP运行流程.md",
-    "learning notes/php_backend_dev_notes/PHP生命周期.md",
-    "learning notes/php_backend_dev_notes/CGI，fastCGI，PHP-FPM.md",
-    "learning notes/php_backend_dev_notes/1_新建 文本文档.md",
-    "learning notes/php_backend_dev_notes/zval数据结构.md",
-    "learning notes/php_backend_dev_notes/TCP3次握手四次挥手.md",
     "learning notes/php_backend_dev_notes/repo",
     "learning notes/php_backend_dev_notes",
     "learning notes/repo/repo",
