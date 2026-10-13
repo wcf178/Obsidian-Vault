@@ -48,7 +48,8 @@
       "cliPathsByHost": {},
       "modelAliases": {},
       "visibleModels": [
-        "gpt-6.1-sol"
+        "gpt-6.1-sol",
+        "gpt-5.6-luna"
       ],
       "enableUltraEffort": false,
       "responseStyle": "pragmatic",
@@ -103,6 +104,47 @@
             "image"
           ],
           "isDefault": true
+        },
+        {
+          "model": "gpt-5.6-luna",
+          "displayName": "GPT-5.6 Luna",
+          "description": "Older fast and efficient model.",
+          "supportedReasoningEfforts": [
+            {
+              "value": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "value": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "value": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "value": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "value": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            }
+          ],
+          "defaultReasoningEffort": "medium",
+          "serviceTiers": [
+            {
+              "id": "priority",
+              "name": "Fast",
+              "description": "1.5x speed, increased usage"
+            }
+          ],
+          "defaultServiceTier": null,
+          "inputModalities": [
+            "text",
+            "image"
+          ],
+          "isDefault": false
         }
       ]
     },
@@ -155,7 +197,10 @@
     }
   },
   "settingsProvider": "claude",
-  "lastSelectedChatModel": null,
+  "lastSelectedChatModel": {
+    "providerId": "codex",
+    "model": "openai-codex/gpt-5.6-luna"
+  },
   "savedProviderModel": {},
   "savedProviderEffort": {},
   "savedProviderServiceTier": {},
