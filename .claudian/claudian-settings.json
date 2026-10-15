@@ -202,7 +202,9 @@
     "model": "openai-codex/gpt-5.6-luna"
   },
   "savedProviderModel": {},
-  "savedProviderEffort": {},
+  "savedProviderEffort": {
+    "codex": "medium"
+  },
   "savedProviderServiceTier": {},
   "savedProviderPermissionMode": {
     "claude": "auto",
