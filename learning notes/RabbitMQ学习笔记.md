@@ -1,4 +1,4 @@
-﻿# RabbitMQ 学习笔记
+# RabbitMQ 学习笔记
 
 ## 1. 死信队列（DLQ）
 
