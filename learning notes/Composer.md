@@ -1,4 +1,4 @@
-﻿# Composer
+# Composer
 
 ## 1. `composer install` 和 `composer update` 有什么区别？
 
