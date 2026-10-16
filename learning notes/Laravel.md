@@ -10,7 +10,15 @@
 一旦响应通过中间件返回, HTTP的handle方法将响应对象返回给应用程序实例的handleRequest方法, 该方法调用响应的send方法,将响应内容返回给用户的web浏览器.
 ## 2. Laravel的服务容器
 laravel的服务容器简单来说就是存放各类service类的实例. 让你可以在项目中无需到处写new 对象就可以获取到对应service类的实例.
-- 如何访问容器? 直接通过 `$this->app` 属性进行访问即可
+### 2.1. 如何绑定容器? 
+绑定容器的方法有很多种. 但是laravel中大部分场景下服务都是通过Service Provider 中的register方法中进行绑定的. 
+- 使用bind方法 注册绑定, 将类名和返回实例闭包传递过来
+``` php
+$this->app->bind(OrderPaymentService::)
+```
+- 
+### 如何访问容器? 
+直接通过 `$this->app` 属性进行访问即可
 
 
 
