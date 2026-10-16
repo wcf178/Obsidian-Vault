@@ -117,6 +117,14 @@ $this->app->resolving(function (mixed $object, Application $app) {
 // 当容器解析任何类型的对象时调用... 
 });
 ```
+## 3. 服务提供者
+service provider机制 将各个服务模块化. 每个service provider中都包括了 register 和 boot 方法.
+register 方法中只负责将 服务 绑定到服务容器. boot方法则负责 初始化和配置框架功能.
 
+- 为什么不在一个PHP文件中,将所有的服务一次性绑定到服务容器中? 原因有很多.
+	1. 所有模块的注册逻辑耦合在了一起, 每增加或者修改一个服务 都需要修改这个PHP文件. 而根据service类型将服务放在不同文件模块中,每个模块负责注册和初始化自己需要的服务. 然后laravel只需要在 `bootstrap/providers.php` 中管理启用哪些模块
+	2. 框架初始化不仅仅是绑定服务. 他还负责初始化和配置框架
+	3. 第三方包. 
+	4. 
 
 
