@@ -14,10 +14,22 @@ laravel的服务容器简单来说就是存放各类service类的实例. 让你�
 绑定容器的方法有很多种. 但是laravel中大部分场景下服务都是通过Service Provider 中的register方法中进行绑定的. 
 - 使用bind方法 注册绑定, 将类名和返回实例闭包传递过来
 ``` php
-$this->app->bind(OrderPaymentService::)
+$this->app->bind(OrderPaymentService::class, function () {
+	return  new OrderPaymentService();
+})
 ```
-- 
-### 如何访问容器? 
+- 使用`singleton`绑定一个单例. 后续调用容器的这个服务只会返回同一个实例
+```php
+$this->app->singleton(OrderPaymentService::class, function () {
+	return  new OrderPaymentService();
+})
+```
+- 使用instance方法将现有对象绑定到容器
+```php
+$paymentService = new OrderPaymentService();
+$this->app->instance(OrderPaymentService::class, $paymentservice);
+```
+### 2.2. 如何访问容器? 
 直接通过 `$this->app` 属性进行访问即可
 
 
