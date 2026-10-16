@@ -39,6 +39,7 @@ $this->app->instance(OrderPaymentService::class, $paymentservice);
 ```php
 $this->app->bind(ProductPublishInterface::class, WalmartPublishService::class);
 ```
+注意: 调用 `bind()` 只是注册解析规则，并不意味着立即创建对象。 真正需要解析接口时，容器才会按照对应规则创建对象
 ### 2.2. 如何访问(解析)容器中的实例? 
 
 1. 使用make方法 (可以访问 `ServersProvider` 类的 `$app` 变量时)
@@ -79,7 +80,43 @@ class OrderController extends Controller
 }
 ```
 > 即便 OrderPaymentService 没有绑定到服务容器中, laravel也会自动解析. 只要OrderPaymentService的构造函数中没有其他的依赖 或者依赖的类可以自动解析,那么就会递归解析依赖 ,最后创建对象 自动注入到Controller. 最经典的无法解析的类就是依赖接口,因为如果没有通过 接口绑定实例 的话,laravel就不知道解析哪个具体的类 (为接口不能直接 `new`)
-2. 
+### 2.4 方法调用和注入 (App::call())
+当你需要在其他地方调用某一个类的某一个方法的时候,可以直接使用
+App::call(\[类对象,方法名\]) 如果方法名需要某些参数,并且这个参数支持自动解析,那么就可以不用传参. 例如
+```php
+class AppleMusic
+{
+    public function getPlays(): int
+    {
+        return 100;
+    }
+}
+
+class PodcastStats
+{
+    public function generate(AppleMusic $apple): array
+    {
+        return [
+            'plays' => $apple->getPlays()
+        ];
+    }
+}
+```
+
+这个时候我调用 `App::call([new PodcastStats, 'generate'])`  服务容器会直接解析AppleMusic类并自动创建 对象.然后调用 generate($apple)
+
+大致的流程如图 [[AppCall方法调用过程]]
+
+### 2.3. 容器解析事件
+可以通过 `resolving` 监听每一次服务容器解析对象的事件
+```php
+$this->app->resolving(OrderPaymentService::class,function(OrderPaymentService $orderpaymentservice,Application $app) {
+// 当容器解析OrderPaymentService类的时候触发
+})
+$this->app->resolving(function (mixed $object, Application $app) { 
+// 当容器解析任何类型的对象时调用... 
+});
+```
 
 
 
