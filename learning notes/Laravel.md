@@ -24,14 +24,29 @@ $this->app->singleton(OrderPaymentService::class, function () {
 	return  new OrderPaymentService();
 })
 ```
+- 使用`scoped`绑定作用域单例,与上一个单例不同的是,在laravel执行一个新的生命周期的时候,实例会被重新刷新.
+```php
+$this->app->scoped(OrderPaymentService::class, function () {
+	return  new OrderPaymentService();
+})
+```
 - 使用instance方法将现有对象绑定到容器
 ```php
 $paymentService = new OrderPaymentService();
 $this->app->instance(OrderPaymentService::class, $paymentservice);
 ```
-### 2.2. 如何访问容器? 
-直接通过 `$this->app` 属性进行访问即可
+- 将接口绑定实例. 例如一个接口`ProductPublishInterface` 和 一个实例 `WalmartPublishService`. 可以直接将接口和walmart绑定,这样当类需要`ProductPublishInterface` 的时候,他就会注入 ``WalmartPublishService``
+```php
+$this->app->bind(ProductPublishInterface::class, WalmartPublishService::class)
+```
+### 2.2. 如何访问(解析)容器中的实例? 
 
+1. 使用make方法
+```php
+	use App\Service\OrderPaymentService
+	$paymentService = $this->app->make(OrderPaymentService:class)
+```
+1. 自动注入
 
 
 
