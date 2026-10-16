@@ -37,16 +37,49 @@ $this->app->instance(OrderPaymentService::class, $paymentservice);
 ```
 - 将接口绑定实例. 例如一个接口`ProductPublishInterface` 和 一个实例 `WalmartPublishService`. 可以直接将接口和walmart绑定,这样当类需要`ProductPublishInterface` 的时候,他就会注入 ``WalmartPublishService``
 ```php
-$this->app->bind(ProductPublishInterface::class, WalmartPublishService::class)
+$this->app->bind(ProductPublishInterface::class, WalmartPublishService::class);
 ```
 ### 2.2. 如何访问(解析)容器中的实例? 
 
-1. 使用make方法
+1. 使用make方法 (可以访问 `ServersProvider` 类的 `$app` 变量时)
 ```php
 	use App\Service\OrderPaymentService
-	$paymentService = $this->app->make(OrderPaymentService:class)
+	$paymentService = $this->app->make(OrderPaymentService:class);
 ```
-1. 自动注入
+不在ServiceProvider 类中 或 没有 $app 变量访问权限的时候
+```php
+	use App\Service\OrderPaymentService
+	$paymentService = App::make(OrderPaymentService:class); //Facade
+	$paymentService = app(OrderPaymentService:class); //app helper
+```
+2. 自动注入. 就是在一个类的构造函数中对一个依赖进行类型提示. 当laravel开始创建这个类的实例的时候, laravel注意到构造函数中出现依赖的类 就会先去解析这个依赖的类, 这就触发了容器解析依赖 然后自动创建依赖类对象. 比如订单控制器依赖`OrderPaymentService`.
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Services\AppleMusic;
+
+class OrderController extends Controller
+{
+    /**
+     * 创建一个新的控制器实例。
+     */
+    public function __construct(
+        protected OrderPaymentService $service,
+    ) {}
+
+    /**
+     * 显示给定 ID 的用户。
+     */
+    public function show(string $id): Podcast
+    {
+        return $this->service->findPodcast($id);
+    }
+}
+```
+> 即便 OrderPaymentService 没有绑定到服务容器中, laravel也会自动解析. 只要OrderPaymentService的构造函数中没有其他的依赖 或者依赖的类可以自动解析,那么就会递归解析依赖 ,最后创建对象 自动注入到Controller. 最经典的无法解析的类就是依赖接口,因为如果没有通过 接口绑定实例 的话,laravel就不知道解析哪个具体的类 (为接口不能直接 `new`)
+2. 
 
 
 
