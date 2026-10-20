@@ -129,6 +129,30 @@ register 方法中只负责将 服务 绑定到服务容器. boot方法则负责
 ## 4. Facade
 Facade实际上只是提供一种更加直观和便捷的方式, 来调用服务容器中的对象.
 比如 `Cache::put()` 方法看起来像是静态调用。但是实际上它是调用服务容器中cache实例对象的方法。
-如果不用facade  则他的表现形式为 $cache  = app(‘cache’)； $cache->put()
+如果不用facade  则表现形式为 $cache  = app(‘cache’)； $cache->put()。
 
+针对Facade的调用方式来来说
+
+Cache 继承了  Facade 基类 然后实现了   getFacadeAccessor 方法 ，返回了容器中的绑定名称。
+Cache 调用静态方法 发现没有 put方法，于是触发 基类的 `__callStatic` 方法，该方法内部如下：
+```php
+public static function __callStatic($method, $args)
+{
+    $instance = static::getFacadeRoot();
+
+    if (! $instance) {
+        throw new RuntimeException(
+            'A facade root has not been set.'
+        );
+    }
+
+    return $instance->$method(...$args);
+}
+```
+就是获取绑定的对象 然后调用容器中对象的方法
+
+- 为什么要用 Facade ？直接用app('')->function() 不就行了吗？
+	一是为了更加直观的展示代码逻辑 二是为了封装 服务容器对象的调用，比如后续某个服务的绑定名称修改了，但是这个服务又在项目中写了 很多 app('绑定名称')->function.，这样的话就需要该很多地方，而使用facade则只需要修改 Facade继承类中 的 getFacadeAccessor 就行
+- Facade有什么缺点？
+	容易隐藏依赖关系，因为直接使用Facade 不会在构造函数或者引用中显示具体引用了哪些服务类。因此一个文件中不要引入过多的Facade
 
