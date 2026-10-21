@@ -1,59 +1,99 @@
-## 1. laravel的请求生命周期
-当一个请求通过nginx转发到laravel的入口文件时, index文件首先引入autoload.php文件, 实现类的自动加载.
-然后index引入bootstrap/app.php 创建应用程序实例 和 服务容器
-然后根据请求类型, 判断是走http内核还是走console内核
-假设请求为http请求, 那么请求过来之后http内核再执行请求之前会首先执行 bootstrappers 定义的一些引导程序, 这些引导程序会配置异常处理, 配置日志, 检测应用程序环境等一些执行请求之前需要完成的任务.
-然后 http内核还定义了一个 HTTP请求 中间件列表,这些列表会读写 HTTP session 判断程序是否处于维护状态.,校验CSRF令牌.
-在正式处理请求之前, 内核的引导操作会为laravel应用程序加载服务提供者. 这些服务提供者是引导框架的数据库 队列 验证器 路由组件用的. 然后将会在所有服务提供者上调用register方法.然后所有的服务提供者注册完成之后,就会对每个service provider 调用boot方法(执行初始化逻辑).
-然后request被传递给路由器进行调度. 路由器将请求分发到路由绑定的方法或者控制器中. 如果路由设置有中间件,那么请求会首先经过中间件,进行一些权限校验,登录校验等一些过滤或其他处理.
-如果请求通过了中间件 则执行路由方法或者控制器方法. 然后得到的响应会通过[[路由的中间件链路]]返回.
-一旦响应通过中间件返回, HTTP的handle方法将响应对象返回给应用程序实例的handleRequest方法, 该方法调用响应的send方法,将响应内容返回给用户的web浏览器.
-## 2. Laravel的服务容器
-laravel的服务容器简单来说就是存放各类service类的实例. 让你可以在项目中无需到处写new 对象就可以获取到对应service类的实例.
-### 2.1. 如何绑定容器? 
-绑定容器的方法有很多种. 但是laravel中大部分场景下服务都是通过Service Provider 中的register方法中进行绑定的. 
-- 使用bind方法 注册绑定, 将类名和返回实例闭包传递过来
-``` php
-$this->app->bind(OrderPaymentService::class, function () {
-	return  new OrderPaymentService();
-})
-```
-- 使用`singleton`绑定一个单例. 后续调用容器的这个服务只会返回同一个实例
-```php
-$this->app->singleton(OrderPaymentService::class, function () {
-	return  new OrderPaymentService();
-})
-```
-- 使用`scoped`绑定作用域单例,与上一个单例不同的是,在laravel执行一个新的生命周期的时候,实例会被重新刷新.
-```php
-$this->app->scoped(OrderPaymentService::class, function () {
-	return  new OrderPaymentService();
-})
-```
-- 使用instance方法将现有对象绑定到容器
-```php
-$paymentService = new OrderPaymentService();
-$this->app->instance(OrderPaymentService::class, $paymentservice);
-```
-- 将接口绑定实例. 例如一个接口`ProductPublishInterface` 和 一个实例 `WalmartPublishService`. 可以直接将接口和walmart绑定,这样当类需要`ProductPublishInterface` 的时候,他就会注入 ``WalmartPublishService``
-```php
-$this->app->bind(ProductPublishInterface::class, WalmartPublishService::class);
-```
-注意: 调用 `bind()` 只是注册解析规则，并不意味着立即创建对象。 真正需要解析接口时，容器才会按照对应规则创建对象
-### 2.2. 如何访问(解析)容器中的实例? 
+# Laravel
 
-1. 使用make方法 (可以访问 `ServersProvider` 类的 `$app` 变量时)
+## 1. Laravel 的请求生命周期
+
+当一个请求通过 Nginx 转发到 Laravel 的入口文件时，`index` 文件首先引入 `autoload.php` 文件，实现类的自动加载。
+
+然后，`index` 引入 `bootstrap/app.php`，创建应用程序实例和服务容器。
+
+然后，根据请求类型，判断是走 HTTP 内核还是走 Console 内核。
+
+假设请求为 HTTP 请求，那么请求过来之后，HTTP 内核在执行请求之前会首先执行 `bootstrappers` 定义的一些引导程序。这些引导程序会配置异常处理、配置日志、检测应用程序环境等一些执行请求之前需要完成的任务。
+
+然后，HTTP 内核还定义了一个 HTTP 请求中间件列表。这些列表会读写 HTTP Session，判断程序是否处于维护状态，校验 CSRF 令牌。
+
+在正式处理请求之前，内核的引导操作会为 Laravel 应用程序加载服务提供者。这些服务提供者是引导框架的数据库、队列、验证器、路由组件用的。然后，将会在所有服务提供者上调用 `register` 方法。然后所有的服务提供者注册完成之后，就会对每个 Service Provider 调用 `boot` 方法（执行初始化逻辑）。
+
+然后，Request 被传递给路由器进行调度。路由器将请求分发到路由绑定的方法或者控制器中。如果路由设置有中间件，那么请求会首先经过中间件，进行一些权限校验、登录校验等一些过滤或其他处理。
+
+如果请求通过了中间件，则执行路由方法或者控制器方法。然后得到的响应会通过 [[路由的中间件链路]] 返回。
+
+一旦响应通过中间件返回，HTTP 的 `handle` 方法将响应对象返回给应用程序实例的 `handleRequest` 方法。该方法调用响应的 `send` 方法，将响应内容返回给用户的 Web 浏览器。
+
+## 2. Laravel 的服务容器
+
+Laravel 的服务容器简单来说就是存放各类 Service 类的实例，让你可以在项目中无需到处写 `new` 对象，就可以获取到对应 Service 类的实例。
+
+### 2.1. 如何绑定容器？
+
+绑定容器的方法有很多种，但是 Laravel 中大部分场景下服务都是通过 Service Provider 中的 `register` 方法进行绑定的。
+
+- 使用 `bind` 方法注册绑定，将类名和返回实例闭包传递过来：
+
+  ```php
+  $this->app->bind(OrderPaymentService::class, function () {
+      return new OrderPaymentService();
+  })
+  ```
+
+- 使用 `singleton` 绑定一个单例，后续调用容器的这个服务只会返回同一个实例：
+
+  ```php
+  $this->app->singleton(OrderPaymentService::class, function () {
+      return new OrderPaymentService();
+  })
+  ```
+
+- 使用 `scoped` 绑定作用域单例。与上一个单例不同的是，在 Laravel 执行一个新的生命周期的时候，实例会被重新刷新：
+
+  ```php
+  $this->app->scoped(OrderPaymentService::class, function () {
+      return new OrderPaymentService();
+  })
+  ```
+
+- 使用 `instance` 方法将现有对象绑定到容器：
+
+  ```php
+  $paymentService = new OrderPaymentService();
+  $this->app->instance(OrderPaymentService::class, $paymentservice);
+  ```
+
+- 将接口绑定实例。例如，一个接口 `ProductPublishInterface` 和一个实例 `WalmartPublishService`。可以直接将接口和 Walmart 绑定，这样当类需要 `ProductPublishInterface` 的时候，它就会注入 `WalmartPublishService`：
+
+  ```php
+  $this->app->bind(ProductPublishInterface::class, WalmartPublishService::class);
+  ```
+
+> 注意：调用 `bind()` 只是注册解析规则，并不意味着立即创建对象。真正需要解析接口时，容器才会按照对应规则创建对象。
+
+### 2.2. 如何访问（解析）容器中的实例？
+
+#### 1. 使用 `make` 方法
+
+可以访问 `ServersProvider` 类的 `$app` 变量时：
+
 ```php
-	use App\Service\OrderPaymentService
-	$paymentService = $this->app->make(OrderPaymentService:class);
+use App\Service\OrderPaymentService;
+
+$paymentService = $this->app->make(OrderPaymentService:class);
 ```
-不在ServiceProvider 类中 或 没有 $app 变量访问权限的时候
+
+不在 Service Provider 类中，或没有 `$app` 变量访问权限的时候：
+
 ```php
-	use App\Service\OrderPaymentService
-	$paymentService = App::make(OrderPaymentService:class); //Facade
-	$paymentService = app(OrderPaymentService:class); //app helper
+use App\Service\OrderPaymentService;
+
+$paymentService = App::make(OrderPaymentService:class); // Facade
+$paymentService = app(OrderPaymentService:class); // app helper
 ```
-2. 自动注入. 就是在一个类的构造函数中对一个依赖进行类型提示. 当laravel开始创建这个类的实例的时候, laravel注意到构造函数中出现依赖的类 就会先去解析这个依赖的类, 这就触发了容器解析依赖 然后自动创建依赖类对象. 比如订单控制器依赖`OrderPaymentService`.
+
+#### 2. 自动注入
+
+就是在一个类的构造函数中对一个依赖进行类型提示。当 Laravel 开始创建这个类的实例的时候，Laravel 注意到构造函数中出现依赖的类，就会先去解析这个依赖的类，这就触发了容器解析依赖，然后自动创建依赖类对象。
+
+比如订单控制器依赖 `OrderPaymentService`：
+
 ```php
 <?php
 
@@ -79,10 +119,21 @@ class OrderController extends Controller
     }
 }
 ```
-> 即便 OrderPaymentService 没有绑定到服务容器中, laravel也会自动解析. 只要OrderPaymentService的构造函数中没有其他的依赖 或者依赖的类可以自动解析,那么就会递归解析依赖 ,最后创建对象 自动注入到Controller. 最经典的无法解析的类就是依赖接口,因为如果没有通过 接口绑定实例 的话,laravel就不知道解析哪个具体的类 (为接口不能直接 `new`)
-### 2.4 方法调用和注入 (App::call())
-当你需要在其他地方调用某一个类的某一个方法的时候,可以直接使用
-App::call(\[类对象,方法名\]) 如果方法名需要某些参数,并且这个参数支持自动解析,那么就可以不用传参. 例如
+
+> 即便 `OrderPaymentService` 没有绑定到服务容器中，Laravel 也会自动解析。只要 `OrderPaymentService` 的构造函数中没有其他的依赖，或者依赖的类可以自动解析，那么就会递归解析依赖，最后创建对象，自动注入到 Controller。
+>
+> 最经典的无法解析的类就是依赖接口，因为如果没有通过接口绑定实例的话，Laravel 就不知道解析哪个具体的类（因为接口不能直接 `new`）。
+
+### 2.3. 方法调用和注入（`App::call()`）
+
+当你需要在其他地方调用某一个类的某一个方法的时候，可以直接使用：
+
+```php
+App::call([类对象, 方法名])
+```
+
+如果方法名需要某些参数，并且这个参数支持自动解析，那么就可以不用传参。例如：
+
 ```php
 class AppleMusic
 {
@@ -103,38 +154,59 @@ class PodcastStats
 }
 ```
 
-这个时候我调用 `App::call([new PodcastStats, 'generate'])`  服务容器会直接解析AppleMusic类并自动创建 对象.然后调用 generate($apple)
+这个时候我调用 `App::call([new PodcastStats, 'generate'])`，服务容器会直接解析 `AppleMusic` 类并自动创建对象，然后调用 `generate($apple)`。
 
-大致的流程如图 [[AppCall方法调用过程]]
+大致的流程如图：[[AppCall方法调用过程]]
 
-### 2.3. 容器解析事件
-可以通过 `resolving` 监听每一次服务容器解析对象的事件
+### 2.4. 容器解析事件
+
+可以通过 `resolving` 监听每一次服务容器解析对象的事件：
+
 ```php
-$this->app->resolving(OrderPaymentService::class,function(OrderPaymentService $orderpaymentservice,Application $app) {
-// 当容器解析OrderPaymentService类的时候触发
-})
-$this->app->resolving(function (mixed $object, Application $app) { 
-// 当容器解析任何类型的对象时调用... 
+$this->app->resolving(
+    OrderPaymentService::class,
+    function (OrderPaymentService $orderpaymentservice, Application $app) {
+        // 当容器解析 OrderPaymentService 类的时候触发
+    }
+);
+
+$this->app->resolving(function (mixed $object, Application $app) {
+    // 当容器解析任何类型的对象时调用……
 });
 ```
+
 ## 3. 服务提供者
-service provider机制 将各个服务模块化. 每个service provider中都包括了 register 和 boot 方法.
-register 方法中只负责将 服务 绑定到服务容器. boot方法则负责 初始化和配置框架功能.
 
-- 为什么不在一个PHP文件中,将所有的服务一次性绑定到服务容器中? 原因有很多.
-	1. 所有模块的注册逻辑耦合在了一起, 每增加或者修改一个服务 都需要修改这个PHP文件. 而根据service类型将服务放在不同文件模块中,每个模块负责注册和初始化自己需要的服务. 然后laravel只需要在 `bootstrap/providers.php` 中管理启用哪些模块
-	2. 框架初始化不仅仅是绑定服务. 他还负责初始化和配置框架
-	3. 第三方包的引入 可以更加方便,如果只放在一个文件中的话, 要引入别的三方包需要修改核心文件, 复制代码. 但使用模块化的设计,可以把相关逻辑封装在包里,然后由laravel安装后自动发现并注册.
-	4. 可以让部分provider延迟加载. 相对于集中注册的文件来说 服务延迟注册并不容易实现. 而service provider 机制可以直接通过实现 `DeferrableProvider` 接口, 并声明 `provides()`，框架可以在真正需要对应服务时才加载这个 Provider
+Service Provider 机制将各个服务模块化。每个 Service Provider 中都包括 `register` 和 `boot` 方法。
+
+`register` 方法中只负责将服务绑定到服务容器，`boot` 方法则负责初始化和配置框架功能。
+
+- 为什么不在一个 PHP 文件中，将所有的服务一次性绑定到服务容器中？原因有很多：
+
+  1. 所有模块的注册逻辑耦合在了一起。每增加或者修改一个服务，都需要修改这个 PHP 文件。而根据 Service 类型将服务放在不同文件模块中，每个模块负责注册和初始化自己需要的服务。然后 Laravel 只需要在 `bootstrap/providers.php` 中管理启用哪些模块。
+  2. 框架初始化不仅仅是绑定服务，它还负责初始化和配置框架。
+  3. 第三方包的引入可以更加方便。如果只放在一个文件中的话，要引入别的第三方包，需要修改核心文件、复制代码。但使用模块化的设计，可以把相关逻辑封装在包里，然后由 Laravel 安装后自动发现并注册。
+  4. 可以让部分 Provider 延迟加载。相对于集中注册的文件来说，服务延迟注册并不容易实现。而 Service Provider 机制可以直接通过实现 `DeferrableProvider` 接口，并声明 `provides()`，框架可以在真正需要对应服务时才加载这个 Provider。
+
 ## 4. Facade
-Facade实际上只是提供一种更加直观和便捷的方式, 来调用服务容器中的对象.
-比如 `Cache::put()` 方法看起来像是静态调用。但是实际上它是调用服务容器中cache实例对象的方法。
-如果不用facade  则表现形式为 $cache  = app(‘cache’)； $cache->put()。
 
-针对Facade的调用方式来来说
+Facade 实际上只是提供一种更加直观和便捷的方式，来调用服务容器中的对象。
 
-Cache 继承了  Facade 基类 然后实现了   getFacadeAccessor 方法 ，返回了容器中的绑定名称。
-Cache 调用静态方法 发现没有 put方法，于是触发 基类的 `__callStatic` 方法，该方法内部如下：
+比如 `Cache::put()` 方法看起来像是静态调用，但是实际上它是调用服务容器中 cache 实例对象的方法。
+
+如果不用 Facade，则表现形式为：
+
+```php
+$cache = app('cache');
+$cache->put();
+```
+
+针对 Facade 的调用方式来说：
+
+`Cache` 继承了 Facade 基类，然后实现了 `getFacadeAccessor` 方法，返回了容器中的绑定名称。
+
+`Cache` 调用静态方法，发现没有 `put` 方法，于是触发基类的 `__callStatic` 方法。该方法内部如下：
+
 ```php
 public static function __callStatic($method, $args)
 {
@@ -149,10 +221,13 @@ public static function __callStatic($method, $args)
     return $instance->$method(...$args);
 }
 ```
-就是获取绑定的对象 然后调用容器中对象的方法
 
-- 为什么要用 Facade ？直接用app('')->function() 不就行了吗？
-	一是为了更加直观的展示代码逻辑 二是为了封装 服务容器对象的调用，比如后续某个服务的绑定名称修改了，但是这个服务又在项目中写了 很多 app('绑定名称')->function.，这样的话就需要该很多地方，而使用facade则只需要修改 Facade继承类中 的 getFacadeAccessor 就行
-- Facade有什么缺点？
-	容易隐藏依赖关系，因为直接使用Facade 不会在构造函数或者引用中显示具体引用了哪些服务类。因此一个文件中不要引入过多的Facade
+就是获取绑定的对象，然后调用容器中对象的方法。
 
+- 为什么要用 Facade？直接用 `app('')->function()` 不就行了吗？
+
+  一是为了更加直观地展示代码逻辑；二是为了封装服务容器对象的调用。比如后续某个服务的绑定名称修改了，但是这个服务又在项目中写了很多 `app('绑定名称')->function`，这样的话就需要修改很多地方，而使用 Facade 则只需要修改 Facade 继承类中的 `getFacadeAccessor` 就行。
+
+- Facade 有什么缺点？
+
+  容易隐藏依赖关系，因为直接使用 Facade 不会在构造函数或者引用中显示具体引用了哪些服务类。因此一个文件中不要引入过多的 Facade。
